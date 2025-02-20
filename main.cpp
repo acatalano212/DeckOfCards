@@ -26,7 +26,7 @@ int main() {
 	vector <string> wholeDeck;
 	//vector <string> shuffeldCards;
 	ifstream cardsIn; 
-	const int shuffles = 1000;
+	const int shuffles = 2;
 	int x, y = 0;
 
 
@@ -53,11 +53,14 @@ int main() {
 
 	for (int i = 0; i < shuffles; i++)
 	{
-		x = generateRandomNumber(1, 52);
-		y = generateRandomNumber(1, 52);
+		for (int j = 0; j < 52; j++) {
+		this_thread::sleep_for(chrono::milliseconds(500));
+		x= generateRandomNumber(1, 52);
+		y = j;
 		temp = wholeDeck.at(x);
 		wholeDeck.at(x) = wholeDeck.at(y);
 		wholeDeck.at(y) = temp;
+		}
 	}
 	cout << "Shuffled Deck:" << endl;
 
