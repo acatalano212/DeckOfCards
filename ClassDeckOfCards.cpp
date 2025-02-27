@@ -1,30 +1,60 @@
 #include <iostream>
 #include<vector>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <random>
+#include "PlayingCard.h"
 
 using namespace std;
-
-class PlayingCard {
-public:
-
-	string faceValue;
-	int cardValue;
-	string suit;
-
-};
 
 
 int main() {
 
-	PlayingCard card1;
-	card1.faceValue = "King";
-	card1.cardValue = 13;
-	card1.suit = "Heart";
+	PlayingCard CardTemp;
+	string FaceValueTemp;
+	int CardValueTemp;
+	string SuitTemp;
 
 	vector <PlayingCard> mainDeck;
-	mainDeck[0].cardValue = 12;
-	mainDeck[0].faceValue = "Queen";
-	mainDeck[0].suit = "Diamond";
+	
+	ifstream cardsIn;
 
+	cardsIn.open("DetailedDeck.txt");
 
-	return 0;
-}
+	if (cardsIn.fail())
+	{
+		cerr << "File failed to open: temps.txt";
+		abort();
+	}
+	cout << "Loading Deck from file..." << endl;
+
+	for (int i = 0; i < 52; i++) {
+		while (!cardsIn.eof())
+		{
+			cardsIn >> FaceValueTemp >> CardValueTemp >> SuitTemp;
+			CardTemp.setFaceValue(FaceValueTemp);
+			CardTemp.setCardValue(CardValueTemp);
+			CardTemp.setSuit(SuitTemp);
+			mainDeck.push_back(CardTemp);
+
+		}
+	}
+	cout << "Deck sucessfully loaded..." << endl;
+	cout << "Printing Deck of Cards..." << endl;
+		for (int i = 0; i < 52; i++) {
+			mainDeck[i].printCard();
+		}
+		cout << "Suffelling Cards..." << endl;
+		random_device rd;
+		mt19937 g(rd());
+		shuffle(mainDeck.begin(), mainDeck.end(), g);
+		
+		cout << "Printing Shuddelled Deck of Cards..." << endl;
+		for (int i = 0; i < 52; i++) {
+			mainDeck[i].printCard();
+		}
+		cout << "Printing Deck of Cards..." << endl;
+
+		return 0;
+	}

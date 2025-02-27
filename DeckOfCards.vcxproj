@@ -129,9 +129,14 @@
   <ItemGroup>
     <ClCompile Include="ClassDeckOfCards.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlayingCard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="cards.txt" />
+    <Text Include="DetailedDeck.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PlayingCard.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

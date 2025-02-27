@@ -22,7 +22,7 @@ void printDeck(vector <string>  deck)
 	}
 }
 
-int main() {
+int tosmain() {
 	string temp="";
 	vector <string> wholeDeck;
 	vector <string> player1Cards;

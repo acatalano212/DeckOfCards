@@ -21,10 +21,21 @@
     <ClCompile Include="ClassDeckOfCards.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PlayingCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="cards.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="DetailedDeck.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PlayingCard.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
